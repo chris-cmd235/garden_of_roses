@@ -10,15 +10,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Pinyon+Script&display=swap" rel="stylesheet">
 <style>
 :root{
-  /* Autumn sunset palette */
-  --night:#2a141b;       /* deep plum, top of the sky */
-  --horizon:#7a2f26;     /* burnt sienna near the sun */
-  --rose:#c05238;        /* terracotta — buttons, drop cap */
-  --rose-deep:#8a2f22;   /* darker terracotta — hover, signature */
-  --petal:#f4c896;       /* warm gold — script headings, outlines */
-  --paper:#f8ecd8;       /* warm cream — body text on dark */
-  --ink:#2b1a12;         /* warm dark brown — text on paper */
-  --leaf:#4a3d22;        /* unused but kept for safety */
+  /*Autumn sunset palette*/
+  --night:#2a141b;       /*deep plum, top of the sky*/
+  --horizon:#7a2f26;     /*burnt sienna near the sun*/
+  --rose:#c05238;        /*terracotta — buttons, drop cap*/
+  --rose-deep:#8a2f22;   /*darker terracotta — hover, signature*/
+  --petal:#f4c896;       /*warm gold — script headings, outlines*/
+  --paper:#f8ecd8;       /*warm cream — body text on dark*/
+  --ink:#2b1a12;         /*warm dark brown — text on paper*/
+  --leaf:#4a3d22;        /*unused but kept for safety*/
   --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
   --script:'Pinyon Script','Snell Roundhand',cursive;
 }
@@ -31,12 +31,12 @@ body{
   min-height:100vh;
   background-color:var(--night);
   background-image:
-    /* sun glow blooming up from the horizon */
+    /*sun glow blooming up from the horizon*/
     radial-gradient(ellipse 140% 70% at 50% 100%,
       rgba(255,170,90,.55) 0%,
       rgba(230,120,60,.30) 35%,
       rgba(122,47,38,0)   70%),
-    /* sky gradient: plum → burgundy → burnt orange */
+    /*sky gradient: plum → burgundy → burnt orange*/
     linear-gradient(180deg,
       #22101a 0%,
       #3b1a22 35%,
@@ -52,7 +52,7 @@ body{
   position: absolute;
   width: min(45vw, 260px);
   height: auto;
-  pointer-events: none;   /* taps go through to the password box */
+  pointer-events: none;   /*taps go through to the password box*/
   z-index: 0;
 }
 .top-left  { top: -30px; left: -40px;  transform: rotate(-10deg); }
@@ -115,7 +115,7 @@ article{position:relative}
 <body>
 
 
-<!-- PASSWORD GATE -->
+<!--PASSWORD GATE-->
 <section id="gate">
   <div class="box">
     <h1>Welcome my love</h1>
@@ -162,16 +162,14 @@ article{position:relative}
   </div>
 </div>
 
-<!-- Hidden audio, controlled by the "Play music" button -->
 <audio id="bgAudio" src="happiness.mp3" loop preload="auto"></audio>
 
 <script>
 /* ============ CONFIG ============ */
 const CONFIG = {
-  // SHA-256 of the password. Default password is: roses
   passwordHash: '0515aa086a21d9b65d30b41aeb325de3783a40bd9f93ecb3110ef4845aa4848f',
-  audioFile: 'happiness.mp3',   // must match the <audio src> above
-  volume: 60                    // 0 to 100
+  audioFile: 'happiness.mp3',   //must match the <audio src> above
+  volume: 60                    //0 to 100
 };
 
 const $ = id => document.getElementById(id);
@@ -209,7 +207,7 @@ function setupAudio(autoStart){
   audio.addEventListener('play',  () => updateBtn(true));
   audio.addEventListener('pause', () => updateBtn(false));
   if(autoStart){
-    // Entering the password is a user gesture → play() is allowed.
+    //Entering the password is a user gesture → play() is allowed.
     audio.play().catch(() => updateBtn(false));
   }
 }
