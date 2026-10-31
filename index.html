@@ -10,15 +10,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Pinyon+Script&display=swap" rel="stylesheet">
 <style>
 :root{
-  /* Rose-garden palette sampled to suit the golden image */
-  --night:#24170f;
-  --horizon:#74351f;
-  --rose:#a52d2b;
-  --rose-deep:#741d25;
-  --petal:#ffe0a3;
-  --paper:#fff3df;
-  --ink:#352016;
-  --leaf:#4a3d22;
+  /* Autumn sunset palette */
+  --night:#2a141b;       /* deep plum, top of the sky */
+  --horizon:#7a2f26;     /* burnt sienna near the sun */
+  --rose:#c05238;        /* terracotta — buttons, drop cap */
+  --rose-deep:#8a2f22;   /* darker terracotta — hover, signature */
+  --petal:#f4c896;       /* warm gold — script headings, outlines */
+  --paper:#f8ecd8;       /* warm cream — body text on dark */
+  --ink:#2b1a12;         /* warm dark brown — text on paper */
+  --leaf:#4a3d22;        /* unused but kept for safety */
   --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
   --script:'Pinyon Script','Snell Roundhand',cursive;
 }
@@ -30,12 +30,18 @@ body{
   padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
   min-height:100vh;
   background-color:var(--night);
-  /* A soft umber veil keeps headings legible while letting the garden show through. */
   background-image:
-    linear-gradient(180deg,rgba(31,19,13,.56) 0%,rgba(45,24,16,.48) 48%,rgba(38,22,14,.62) 100%),
-    url("red-city-rose-garden.png");
-  background-position:center center;
-  background-size:cover;
+    /* sun glow blooming up from the horizon */
+    radial-gradient(ellipse 140% 70% at 50% 100%,
+      rgba(255,170,90,.55) 0%,
+      rgba(230,120,60,.30) 35%,
+      rgba(122,47,38,0)   70%),
+    /* sky gradient: plum → burgundy → burnt orange */
+    linear-gradient(180deg,
+      #22101a 0%,
+      #3b1a22 35%,
+      #6a2a26 65%,
+      #a8492e 100%);
   background-attachment:fixed;
   background-repeat:no-repeat;
 }
@@ -101,6 +107,8 @@ article{position:relative}
 .corner{position:absolute;width:clamp(110px,30vw,170px);height:auto;pointer-events:none;z-index:3;filter:drop-shadow(0 6px 12px rgba(0,0,0,.3))}
 .corner.tl{top:-62px;left:-26px;transform:rotate(-14deg)}
 .corner.br{bottom:-58px;right:-26px;transform:scaleX(-1) rotate(-14deg)}
+#site .garden{height:min(72vw,432px)}
+.garden img.g-bf{left:-4%;bottom:-3%;width:min(50vw,300px);transform:none;z-index:1}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
